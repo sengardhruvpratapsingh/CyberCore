@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberCore | Cyber Fraud Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+    
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">CC</div>
+
+            <div>
+                <h2>CYBERCORE</h2>
+                <span>Cyber Intelligence</span>
+            </div>
+        </div>
+
+
+        <div class="menu-title" data-i18n="workspace">WORKSPACE</div>
+
+        <nav>
+
+            <div class="nav-section-label">CASES</div>
+
+            <button class="nav-item" data-page="cases">
+                <span>◫</span>
+                <span data-i18n="cases">Cases</span>
+            </button>
+
+            <button class="nav-item" data-page="evidence">
+                <span>▣</span>
+                <span data-i18n="evidence">Evidence</span>
+            </button>
+
+            <div class="nav-section-label">CASE NETWORK</div>
+
+            <button class="nav-item" data-page="graph">
+                <span>◎</span>
+                <span data-i18n="graph">Unified Graph</span>
+            </button>
+
+            <div class="nav-section-label">CASE INTELLIGENCE</div>
+
+            <button class="nav-item" data-page="timeline">
+                <span>◷</span>
+                <span data-i18n="timeline">Timeline</span>
+            </button>
+
+            <button class="nav-item" data-page="findings">
+                <span>✓</span>
+                <span data-i18n="findings">Findings</span>
+            </button>
+
+            <button class="nav-item" data-page="copilot">
+                <span>✦</span>
+                <span>Copilot</span>
+            </button>
+
+            <button class="nav-item" data-page="dossier">
+                <span>◉</span>
+                <span data-i18n="dossier">Entity Dossier</span>
+            </button>
+
+            <div class="nav-section-label">OVERVIEW</div>
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>▦</span>
+                <span data-i18n="dashboard">Dashboard</span>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item" data-page="system">
+                <span>⚙</span>
+                <span data-i18n="system">System Status</span>
+            </button>
+
+            <div class="offline-card">
+
+                <div class="status-dot"></div>
+
+                <div>
+                    <strong data-i18n="offlineMode">Offline Mode</strong>
+                    <small data-i18n="localProcessing">
+                        Local processing enabled
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>CYBERCORE</span>
+                <b>/</b>
+                <strong id="pageTitle">Dashboard</strong>
+            </div>
+
+
+            <div class="top-actions">
+
+                <button class="top-btn" id="evidenceAction" data-page="evidence">
+                    ▣
+                    <span data-i18n="evidence">Evidence</span>
+                </button>
+
+                <button class="top-btn" id="reportAction" data-page="report">
+                    ▤
+                    <span>Investigation Report</span>
+                </button>
+
+                <!-- ABOUT -->
+
+                <button class="top-btn" id="aboutBtn">
+                    ⓘ
+                    <span data-i18n="about">About</span>
+                </button>
+
+
+                <!-- LANGUAGE -->
+
+                <div class="language-wrapper">
+
+                    <button class="top-btn" id="languageBtn">
+                        🌐
+                        <span id="currentLanguage">English</span>
+                        ▾
+                    </button>
+
+                    <div class="language-menu" id="languageMenu">
+
+                        <button data-lang="en">
+                            🇬🇧 English
+                        </button>
+
+                        <button data-lang="hi">
+                            🇮🇳 हिंदी
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button class="icon-btn">
+                    🔔
+                    <span class="notification"></span>
+                </button>
+
+
+                <div class="profile">
+                    <div class="avatar">CC</div>
+
+                    <div class="profile-text">
+                        <strong>Investigator</strong>
+                        <small>CyberCore</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content" id="content">
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <div id="dashboardPage" class="page active-page">
+
+                <div class="hero">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <span class="live-dot"></span>
+                            AI-POWERED DIGITAL FORENSICS
+                        </div>
+
+                        <h1 data-i18n="heroTitle">
+                            Case Intelligence Dashboard
+                        </h1>
+
+                        <p data-i18n="heroText">
+                            Track active and recent investigations with their evidence and risk status.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <button class="secondary-btn" id="analysisBtn">
+                                ▶ <span data-i18n="startAnalysis">
+                                    Start Analysis
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-icon">
+                        <div class="shield">⌾</div>
+                    </div>
+
+                </div>
+
+
+                <div class="case-summary-grid">
+
+                    <div class="case-summary-card active-cases">
+                        <span>ACTIVE CASES</span>
+                        <strong id="activeCasesCount">0</strong>
+                        <small>Currently under investigation</small>
+                    </div>
+
+                    <div class="case-summary-card recent-cases">
+                        <span>RECENT CASES</span>
+                        <strong id="recentCasesCount">0</strong>
+                        <small>Updated across the workspace</small>
+                    </div>
+
+                    <div class="case-summary-card case-history">
+                        <span>CASE HISTORY</span>
+                        <strong id="caseHistoryCount">0</strong>
+                        <small>Archived and completed cases</small>
+                    </div>
+
+                    <div class="case-summary-card terminated-cases">
+                        <span>TERMINATED CASES</span>
+                        <strong id="terminatedCasesCount">0</strong>
+                        <small>Awaiting permanent deletion</small>
+                    </div>
+
+                </div>
+
+
+
+                <!-- MAIN GRID -->
+
+                <div class="dashboard-grid">
+
+                    <!-- PIPELINE -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3 data-i18n="forensicPipeline">
+                                    Forensic Pipeline
+                                </h3>
+
+                                <p data-i18n="pipelineDescription">
+                                    Evidence processing workflow
+                                </p>
+                            </div>
+
+                            <span class="status-badge">
+                                ● READY
+                            </span>
+
+                        </div>
+
+
+                        <div class="pipeline">
+
+                            <div class="pipeline-step completed">
+                                <div class="step-number">01</div>
+                                <div>
+                                    <strong>INGEST</strong>
+                                    <small>Artifact received</small>
+                                </div>
+                                <span>✓</span>
+                            </div>
+
+
+                            <div class="pipeline-line"></div>
+
+
+                            <div class="pipeline-step completed">
+                                <div class="step-number">02</div>
+                                <div>
+                                    <strong>SHA-256</strong>
+                                    <small>Fingerprint verified</small>
+                                </div>
+                                <span>✓</span>
+                            </div>
+
+
+                            <div class="pipeline-line"></div>
+
+
+                            <div class="pipeline-step completed">
+                                <div class="step-number">03</div>
+                                <div>
+                                    <strong>PARSE</strong>
+                                    <small>Structure validated</small>
+                                </div>
+                                <span>✓</span>
+                            </div>
+
+
+                            <div class="pipeline-line"></div>
+
+
+                            <div class="pipeline-step active-step">
+                                <div class="step-number">04</div>
+                                <div>
+                                    <strong>CORRELATE</strong>
+                                    <small>Finding relationships</small>
+                                </div>
+                                <span>•••</span>
+                            </div>
+
+
+                            <div class="pipeline-line"></div>
+
+
+                            <div class="pipeline-step">
+                                <div class="step-number">05</div>
+                                <div>
+                                    <strong>RISK SCORE</strong>
+                                    <small>Threat assessment</small>
+                                </div>
+                                <span>—</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-intelligence-grid">
+                    <section class="panel dashboard-table-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Evidence Intelligence</h3>
+                                <p>Financial · Device · Email</p>
+                            </div>
+                            <span class="table-kicker">CASE NETWORK</span>
+                        </div>
+                        <div class="dashboard-table-wrap">
+                            <table class="dashboard-intelligence-table">
+                                <thead><tr><th>Capability</th><th>What it shows</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Correlation</strong><small>Cross-evidence entity matching</small></td><td><span class="format-list">EML · JSON · TXT · PDF · CSV</span></td></tr>
+                                    <tr><td><strong>Unified Graph</strong><small>Observed relationships</small></td><td>Account, device, email and transaction links</td></tr>
+                                    <tr><td><strong>Connection Graph</strong><small>Events and entity connection</small></td><td>Transaction flow and relationship paths</td></tr>
+                                    <tr><td><strong>Risk Analysis</strong><small>Explainable score bands</small></td><td><span class="risk-band low">1–3 Low</span><span class="risk-band medium">4–6 Medium</span><span class="risk-band high">7–9 High</span></td></tr>
+                                    <tr><td><strong>Reports</strong><small>Evidence-backed outputs</small></td><td>PDF · JSON</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="panel dashboard-table-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Investigation Workspace</h3>
+                                <p>Cases, evidence and intelligence views</p>
+                            </div>
+                            <span class="table-kicker">OPERATIONS</span>
+                        </div>
+                        <div class="dashboard-table-wrap">
+                            <table class="dashboard-intelligence-table">
+                                <thead><tr><th>Workspace</th><th>Coverage</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Cases</strong><small>Active / terminated cases and report</small></td><td><button class="table-link" type="button" data-action="view-all">Open cases</button></td></tr>
+                                    <tr><td><strong>Evidence</strong><small>Stores evidence</small></td><td><button class="table-link" type="button" data-action="open-page" data-page="evidence">Open store</button></td></tr>
+                                    <tr><td><strong>Investigation Timeline</strong><small>Chronological events &amp; evidence activity</small></td><td><button class="table-link" type="button" data-action="open-page" data-page="timeline">View timeline</button></td></tr>
+                                    <tr><td><strong>Forensic Findings</strong><small>Observed patterns &amp; evidence-backed insights</small></td><td><button class="table-link" type="button" data-action="open-page" data-page="findings">View findings</button></td></tr>
+                                    <tr><td><strong>Entity Intelligence</strong><small>Identity links, activity &amp; connections</small></td><td><button class="table-link" type="button" data-action="open-page" data-page="dossier">Open dossier</button></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="panel cases-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 data-i18n="recentCases">Recent Cases</h3>
+                            <p data-i18n="recentDescription">Latest activity across your workspace</p>
+                        </div>
+                        <button class="outline-btn" type="button" data-action="view-all"><span data-i18n="viewAll">View All</span></button>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>CASE ID</th><th>TYPE</th><th>ARTIFACTS</th><th>RISK</th><th>STATUS</th><th>UPDATED</th><th>ACTION</th></tr></thead>
+                            <tbody id="recentCasesBody"><tr><td colspan="7">Loading recent cases...</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= OTHER PAGES ================= -->
+
+            <div id="modulePage" class="page">
+
+                <div class="module-header">
+
+                    <div>
+                        <div class="eyebrow">
+                            CYBERCORE MODULE
+                        </div>
+
+                        <h1 id="moduleTitle">
+                            Cases
+                        </h1>
+
+                        <p id="moduleDescription">
+                            Manage and investigate cyber-fraud cases.
+                        </p>
+                    </div>
+
+                    <button class="primary-btn" id="moduleAction" type="button" data-action="new-analysis">
+                        + New Analysis
+                    </button>
+
+                </div>
+
+
+                <div class="evidence-workspace" id="evidenceWorkspace">
+
+                    <div class="stats-grid evidence-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-top"><span data-i18n="totalCases">Total Cases</span><div class="stat-icon">◫</div></div>
+                            <h2 id="totalCasesStat">0</h2>
+                            <small class="positive">↑ 12.4% <span data-i18n="thisMonth">this month</span></small>
+                        </div>
+                        <div class="stat-card danger-card">
+                            <div class="stat-top"><span data-i18n="highRisk">High Risk</span><div class="stat-icon danger">!</div></div>
+                            <h2 id="highRiskStat">0</h2>
+                            <small class="danger-text">18.7% of cases</small>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-top"><span data-i18n="avgRisk">Avg. Risk Score</span><div class="stat-icon">◈</div></div>
+                            <h2><span id="avgRiskStat">0</span><span class="small-score">/10</span></h2>
+                            <div class="progress"><div style="width:72%"></div></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-top"><span data-i18n="suspiciousEntities">Suspicious Entities</span><div class="stat-icon">◎</div></div>
+                            <h2 id="suspiciousEntitiesStat">0</h2>
+                            <small class="positive">↑ 8.2% detected</small>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-top"><span data-i18n="connectedArtifacts">Connected Artifacts</span><div class="stat-icon">⌁</div></div>
+                            <h2 id="connectedArtifactsStat">0</h2>
+                            <small id="connectedArtifactsSubtext">Across 0 cases</small>
+                        </div>
+                    </div>
+
+                    <div class="panel evidence-intake-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3 id="evidenceIntakeTitle">Evidence Intake</h3>
+                                <p id="evidenceIntakeSubtitle">Select a case to upload and preserve its artifacts.</p>
+                            </div>
+                            <span class="secure-badge">SHA-256</span>
+                        </div>
+
+                        <div class="drop-zone" id="evidenceDropZone">
+                            <div class="upload-icon">↑</div>
+                            <h3>Upload evidence</h3>
+                            <p>CSV, JSON, TXT, HTML, XLSX, images, EML, PDF and other supported files</p>
+                            <button class="outline-btn" id="evidenceBrowseBtn" type="button">Browse Files</button>
+                            <input type="file" id="evidenceFileInput" accept=".csv,.json,.txt,.html,.htm,.xlsx,.png,.jpg,.jpeg,.eml,.pdf" hidden>
+                        </div>
+
+                        <div id="evidenceFileList" class="file-list"></div>
+                    </div>
+
+                    <div class="panel evidence-output-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3 id="evidenceCaseTitle">Evidence Store</h3>
+                                <p id="evidenceCaseSubtitle">Select a case to view its documents and reports.</p>
+                            </div>
+                            <span class="status-badge">● READY</span>
+                        </div>
+                        <div class="evidence-output-list" id="evidenceCatalog">
+                            <div><span>INFO</span><small>Select a case to load stored evidence.</small></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="investigation-workspace" id="timelineWorkspace">
+                    <div class="workspace-toolbar">
+                        <div><h2>Investigation Timeline</h2><p>Normalized events from the selected case.</p></div>
+                        <div class="workspace-controls"><select id="timelineTypeFilter"><option value="all">All event types</option><option value="transaction">Transaction</option><option value="device">Device</option><option value="email">Email</option><option value="communication">Communication</option><option value="other">Other</option></select><button class="outline-btn" id="timelineSortBtn" type="button">Newest first</button></div>
+                    </div>
+                    <div id="timelineState" class="workspace-state">Select a case to load timeline events.</div>
+                    <div id="timelineList" class="timeline-list"></div>
+                </div>
+
+                <div class="investigation-workspace" id="findingsWorkspace">
+                    <div class="workspace-toolbar">
+                        <div><h2>Investigation Findings</h2><p>Deterministic observations generated from case evidence.</p></div>
+                        <div class="workspace-controls"><select id="findingSeverityFilter"><option value="all">All severity</option><option value="LOW">Low</option><option value="MEDIUM">Medium</option><option value="HIGH">High</option><option value="CRITICAL">Critical</option></select><input id="findingRuleFilter" placeholder="Rule / entity / evidence"></div>
+                    </div>
+                    <div class="risk-banner"><span>Risk Score</span><strong id="findingsRiskScore">- / 10</strong><details><summary>How calculated?</summary><p id="riskCalculationText">Risk components returned by the backend will appear here.</p></details></div>
+                    <div id="findingsState" class="workspace-state">Select a case to load findings.</div>
+                    <div id="findingsList" class="finding-list"></div>
+                </div>
+
+                <div class="investigation-workspace" id="dossierWorkspace">
+                    <div class="workspace-toolbar"><div><h2>Entity Dossier</h2><p>Detailed evidence-backed profile for one selected entity.</p></div><button class="outline-btn" id="dossierGraphBtn" type="button">View Unified Graph</button></div>
+                    <div id="dossierState" class="workspace-state">Select an entity from the graph, timeline, or findings.</div>
+                    <div id="dossierContent" class="dossier-content"></div>
+                </div>
+
+                <div class="investigation-workspace" id="copilotWorkspace">
+                    <div class="workspace-toolbar">
+                        <div>
+                            <h2>Investigator Copilot</h2>
+                            <p>Evidence-grounded assistance using local tool selection.</p>
+                        </div>
+                        <span class="status-badge" id="copilotModeStatus">CHECKING</span>
+                    </div>
+                    <div class="copilot-status-grid">
+                        <div><span>Processing</span><strong id="copilotProcessingStatus">Local</strong></div>
+                        <div><span>Model</span><strong id="copilotModelStatus">Fallback available</strong></div>
+                        <div><span>Tools</span><strong id="copilotToolsStatus">Loading...</strong></div>
+                    </div>
+                    <div class="copilot-question-row">
+                        <textarea id="copilotQuestion" rows="3" placeholder="Ask about the selected case evidence..."></textarea>
+                        <button class="primary-btn" id="copilotAskBtn" type="button">Ask Copilot</button>
+                    </div>
+                    <div id="copilotState" class="workspace-state">Select a case to ask an evidence-grounded question.</div>
+                    <div id="copilotAnswer" class="copilot-answer" hidden>
+                        <div class="copilot-answer-header"><span>Answer</span><span class="status-badge" id="copilotAnswerMode"></span></div>
+                        <p id="copilotAnswerText"></p>
+                        <div class="copilot-result-grid">
+                            <div><span>Tool used</span><code id="copilotToolUsed">-</code></div>
+                            <div><span>Search criteria</span><pre id="copilotArguments">No additional filters were used.</pre></div>
+                            <div><span>Evidence sources</span><pre id="copilotSources">No source references were returned.</pre></div>
+                            <div><span>Evidence summary</span><pre id="copilotResult">No verified forensic result was returned.</pre></div>
+                        </div>
+                        <div id="copilotLimitations" class="copilot-limitations"></div>
+                    </div>
+                </div>
+
+                <div class="panel evidence-graph-panel" id="connectionGraphPanel">
+                    <div class="unified-graph-header">
+                        <div>
+                            <h3>Case Connection Graph</h3>
+                            <p>Visible connections, entities, amounts, and device links for <span id="connectionGraphCaseId">the selected case</span>.</p>
+                        </div>
+                        <div class="unified-graph-legend">
+                            <span><i class="legend-financial"></i> Transaction</span>
+                            <span><i class="legend-device"></i> Device</span>
+                            <span><i class="legend-email"></i> Email</span>
+                        </div>
+                    </div>
+                    <div class="graph-readout" id="connectionGraphReadout">Select a node to inspect its connections.</div>
+                    <div class="unified-graph-svg-wrap">
+                        <svg id="connectionGraphSvg" viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" aria-label="Selected case connection graph"></svg>
+                    </div>
+                </div>
+
+                <div class="panel unified-graph-panel" id="unifiedGraphPanel">
+                    <div class="unified-graph-header">
+                        <div>
+                            <h3>Unified Graph</h3>
+                            <p>All case entities and evidence relationships for <span id="unifiedGraphCaseId">the selected case</span>.</p>
+                        </div>
+                        <div class="unified-graph-legend">
+                            <span><i class="legend-financial"></i> Financial</span>
+                            <span><i class="legend-device"></i> Device</span>
+                            <span><i class="legend-email"></i> Email</span>
+                        </div>
+                    </div>
+                    <div class="graph-readout" id="unifiedGraphReadout">Select an entity to inspect its events and relationships.</div>
+                    <div class="unified-graph-svg-wrap">
+                        <svg id="unifiedGraphSvg" viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" aria-label="Selected case unified graph"></svg>
+                    </div>
+                </div>
+
+
+                <div class="cases-workspace" id="casesWorkspace">
+
+                    <div class="panel case-intake-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Case Evidence</h3>
+                                <p>Upload evidence to create a numbered case.</p>
+                            </div>
+                            <span class="secure-badge">SHA-256</span>
+                        </div>
+                        <div class="drop-zone" id="caseDropZone">
+                            <div class="upload-icon">↑</div>
+                            <h3>Upload case file</h3>
+                            <p>CSV, JSON, TXT, XLSX, EML, PDF and supported evidence</p>
+                            <button class="outline-btn" id="caseBrowseBtn" type="button">Browse Files</button>
+                            <input type="file" id="caseFileInput" accept=".csv,.json,.txt,.html,.htm,.xlsx,.xls,.png,.jpg,.jpeg,.eml,.pdf" hidden>
+                        </div>
+                        <div id="caseFileList" class="file-list"></div>
+                    </div>
+
+                    <div class="case-workspace-header">
+                        <div>
+                            <span class="eyebrow">ACTIVE CASE</span>
+                            <h2 id="activeCaseTitle">No active case selected</h2>
+                            <p id="activeCaseDescription">Upload evidence to create an investigation case.</p>
+                        </div>
+                        <span class="case-status investigating" id="activeCaseStatus">ACTIVE</span>
+                    </div>
+
+                    <div class="panel case-list-panel">
+                        <div class="panel-header"><div><h3>Cases</h3><p>Select a case to continue analysis.</p></div></div>
+                        <div id="caseList" class="case-list"></div>
+                    </div>
+
+                    <div class="case-analysis-tools">
+                        <div class="case-tool-card">
+                            <span class="case-tool-icon">₹</span>
+                            <div>
+                                <strong>FundTrace</strong>
+                                <small>Transaction-to-transaction flow and cash-out paths</small>
+                            </div>
+                        </div>
+                        <div class="case-tool-card">
+                            <span class="case-tool-icon">⌁</span>
+                            <div>
+                                <strong>Device Correlation</strong>
+                                <small>Link mobile, IMEI, SIM and shared device signals</small>
+                            </div>
+                        </div>
+                        <div class="case-tool-card">
+                            <span class="case-tool-icon">✉</span>
+                            <div>
+                                <strong>Email Analysis</strong>
+                                <small>Connect email headers and artifacts to the case</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-analysis-grid">
+                        <div class="panel case-risk-panel">
+                            <div class="panel-header">
+                                <div>
+                                    <h3>Active Case Risk</h3>
+                                    <p>Risk scoring across correlated evidence</p>
+                                </div>
+                                <span class="risk-pill low-pill" id="activeCaseRisk">LOW · 0/10</span>
+                                </div>
+                                <div class="case-risk-score"><strong id="caseRiskScore">0</strong><span>/10</span></div>
+                                <div class="progress"><div id="caseRiskProgress" style="width:0%"></div></div>
+                            <div class="case-risk-factors">
+                                <span>Transaction velocity</span>
+                                <span>Shared mobile identity</span>
+                                <span>Email mismatch</span>
+                            </div>
+                            <div class="case-actions">
+                                <button class="secondary-btn" id="caseAnalyzeBtn" type="button">Analyze Case</button>
+                                <button class="outline-btn" id="caseTerminateBtn" type="button" disabled>Terminate Case</button>
+                            </div>
+                            <div class="risk-scoring-guide">
+                                <strong>Risk scoring</strong>
+                                <div class="risk-range low-range"><span>1–3</span><b>Low</b></div>
+                                <div class="risk-range medium-range"><span>4–6</span><b>Medium</b></div>
+                                <div class="risk-range high-range"><span>7–10</span><b>High</b></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel report-workspace" id="reportWorkspace">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Investigation Report</h3>
+                            <p>Complete case report: evidence, graph, timeline, findings and entities.</p>
+                        </div>
+                        <span class="status-badge" id="reportStatus">NOT GENERATED</span>
+                    </div>
+                    <div id="reportSummary" class="report-summary">Select a case and generate its report.</div>
+                    <div class="case-actions">
+                        <button class="primary-btn" id="generateReportBtn" type="button">Generate JSON Report</button>
+                        <button class="secondary-btn" id="downloadJsonBtn" type="button" disabled>Download JSON</button>
+                        <button class="secondary-btn" id="downloadPdfBtn" type="button" disabled>Download PDF</button>
+                    </div>
+                </div>
+
+
+                <div class="module-grid" id="moduleGrid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">◎</div>
+
+                        <h3 id="moduleCard1">
+                            Unified Analysis
+                        </h3>
+
+                        <p id="moduleCardText">
+                            Correlate digital artifacts and identify connected entities.
+                        </p>
+
+                        <div class="module-stat">
+                            <strong id="moduleCaseCount">0</strong>
+                            <span>Active Cases</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">⌁</div>
+
+                        <h3>
+                            Entity Correlation
+                        </h3>
+
+                        <p>
+                            Detect shared phone numbers, accounts, IP addresses,
+                            IMEI and UPI identifiers.
+                        </p>
+
+                        <div class="module-stat">
+                            <strong id="moduleEntityCount">0</strong>
+                            <span>Entities</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">◈</div>
+
+                        <h3>
+                            Risk Intelligence
+                        </h3>
+
+                        <p>
+                            Explainable risk scoring based on suspicious patterns
+                            and relationships.
+                        </p>
+
+                        <div class="module-stat">
+                            <strong id="moduleRiskScore">0/10</strong>
+                            <span>Average Risk</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel empty-module">
+
+                    <div class="big-module-icon">✦</div>
+
+                    <h2 id="moduleBottomTitle">
+                        Investigation Workspace
+                    </h2>
+
+                    <p id="moduleBottomText">
+                        Select a case or upload evidence to begin analysis.
+                    </p>
+
+                    <button class="primary-btn" type="button" data-action="start-investigation">
+                        Start Investigation
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= ABOUT MODAL ================= -->
+
+<div class="modal-overlay" id="aboutModal">
+
+    <div class="modal">
+
+        <button class="close-btn" id="closeAbout">
+            ×
+        </button>
+
+
+        <div class="modal-title">
+
+            <div class="modal-logo">
+                TF
+            </div>
+
+            <div>
+                <div class="eyebrow">
+                    CYBERCORE
+                </div>
+
+                <h2 data-i18n="aboutCyberCore">
+                    About CyberCore
+                </h2>
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT OPTIONS -->
+
+        <div class="about-tabs">
+
+            <button class="about-tab active" data-tab="about">
+                <span>01</span>
+                <b data-i18n="whatIsCyberCore">
+                    What is CyberCore?
+                </b>
+            </button>
+
+            <button class="about-tab" data-tab="how">
+                <span>02</span>
+                <b data-i18n="howItWorks">
+                    How it Works
+                </b>
+            </button>
+
+            <button class="about-tab" data-tab="security">
+                <span>03</span>
+                <b data-i18n="forensicIntegrity">
+                    Forensic Integrity
+                </b>
+            </button>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <div class="about-section active" id="aboutTab">
+
+                <h3>AI-Powered Cyber Fraud Intelligence</h3>
+
+                <p>
+                    CyberCore is a unified digital-forensics workspace
+                    designed to help investigators analyze fragmented
+                    cyber-fraud evidence from multiple sources.
+                </p>
+
+                <div class="info-grid">
+
+                    <div>
+                        <strong>01</strong>
+                        <span>Multi-source evidence</span>
+                    </div>
+
+                    <div>
+                        <strong>02</strong>
+                        <span>Entity correlation</span>
+                    </div>
+
+                    <div>
+                        <strong>03</strong>
+                        <span>Risk intelligence</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-section" id="howTab">
+
+                <h3>How CyberCore Works</h3>
+
+                <div class="mini-flow">
+
+                    <span>UPLOAD</span>
+                    <b>→</b>
+
+                    <span>PARSE</span>
+                    <b>→</b>
+
+                    <span>CORRELATE</span>
+                    <b>→</b>
+
+                    <span>RISK</span>
+                    <b>→</b>
+
+                    <span>REPORT</span>
+
+                </div>
+
+                <p>
+                    Evidence is normalized, entities are extracted,
+                    relationships are identified and suspicious patterns
+                    are highlighted for investigation.
+                </p>
+
+            </div>
+
+
+            <div class="about-section" id="securityTab">
+
+                <h3>Forensic Integrity</h3>
+
+                <p>
+                    Every uploaded artifact can be fingerprinted using
+                    SHA-256 before processing. This helps preserve evidence
+                    integrity and allows investigators to verify whether
+                    the artifact has changed.
+                </p>
+
+                <div class="security-box">
+
+                    <span>🔐</span>
+
+                    <div>
+                        <strong>SHA-256 Fingerprint</strong>
+                        <small>
+                            Evidence integrity verification
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    <span>✓</span>
+    <p id="toastText">Analysis started</p>
+</div>
+
+
+<script src="script.js?v=20260916-18"></script>
+
+</body>
+</html>
