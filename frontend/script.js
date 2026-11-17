@@ -184,7 +184,7 @@ let currentLang = "en";
 
 /* ================= BACKEND API =================
    Local default: http://127.0.0.1:8000
-   Public share mode: set window.__API_BASE__ = "https://<your-ngrok-backend>.ngrok-free.app" in the browser console before using the app.
+   Render builds frontend/api-config.js with the deployed API URL.
 */
 const API_BASE = window.__API_BASE__ || "http://127.0.0.1:8000";
 let currentCaseId = null;

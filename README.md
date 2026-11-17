@@ -54,3 +54,15 @@ Run the backend tests from the repository root:
 cd backend
 ..\.venv\Scripts\python.exe -m unittest discover -s tests
 ```
+
+## Deploy to Render
+
+The root `render.yaml` Blueprint defines separate `cybercore-api` and
+`cybercore-frontend` services. In Render, create a new Blueprint from this
+repository and deploy the `main` branch. The frontend build receives the API
+hostname from the backend service and writes it into `api-config.js`.
+
+The free backend is for demos with synthetic data only. It has no application
+authentication, its filesystem is ephemeral, and uploaded evidence, reports,
+and the SQLite database can be lost when the service restarts or spins down.
+Do not upload real or sensitive case data.
